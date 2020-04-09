@@ -39,6 +39,8 @@ fn main() {
         ball: Ball{x: 0.0, y: 0.0},
     };
 
+    game.init();
+
     let mut events = Events::new(EventSettings::new());
     while let Some(e) = events.next(&mut window) {
         if let Some(args) = e.render_args() {
