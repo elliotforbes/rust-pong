@@ -12,12 +12,12 @@ impl Ball {
         use graphics::*;
 
         const BLUE: [f32; 4] = [0.0, 0.0, 1.0, 1.0];
-         
+
         gl.draw(args.viewport(), |c, gl| {
             let square = rectangle::square(0.0, 0.0, 10.0);
             let transform = c
                 .transform
-                .trans(100.0, 100.0)
+                .trans(self.x, self.y)
                 .rot_rad(0.0)
                 .trans(-25.0, -25.0);
 

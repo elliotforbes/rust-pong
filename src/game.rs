@@ -14,17 +14,29 @@ pub struct Game {
 }
 
 impl Game {
-
     pub fn init(&mut self) {
-        self.player2.x = 100.0;
-        self.player2.y = 100.0;
-    }
+        self.player1.x = 50.0;
+        self.player1.y = 100.0;
 
+        self.player2.x = 750.0;
+        self.player2.y = 200.0;
+
+        self.ball.x = 390.0;
+        self.ball.y = 290.0;
+    }
 
     pub fn update(&mut self, _args: &UpdateArgs) {
         println!("Updating Game");
-
+        println!("Ball: {}:{}", self.ball.x, self.ball.y);
+        if (self.ball.x < 500.0 && self.ball.y < 700.0)  {
+            self.ball.x += 5.0;
+        } 
     }
+
+    pub fn handle_collisions(self, x: f64, y: f64) {
+        // if ()
+    }
+
 
     pub fn handle_input(&mut self, k: &ButtonArgs) {
         if k.state == ButtonState::Press {
@@ -47,7 +59,9 @@ impl Game {
     }
 
     pub fn render(&mut self, args: &RenderArgs) {
-        use graphics::*;   
+        use graphics::*;
+
+        const GREEN: [f32; 4] = [243.0, 123.0, 0.0, 1.0];
 
         self.gl.draw(args.viewport(), |c, gl| {
             clear(GREEN, gl);
