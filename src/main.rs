@@ -36,7 +36,7 @@ fn main() {
         y: 0.0,
         player1: Player{x: 0.0, y: 0.0, score: 0},
         player2: Player{x: 0.0, y: 0.0, score: 0},
-        ball: Ball{x: 0.0, y: 0.0},
+        ball: Ball{x: 0.0, y: 0.0, velocityX: 2.0, velocityY: 2.0},
     };
 
     game.init();

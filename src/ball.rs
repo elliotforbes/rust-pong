@@ -5,6 +5,8 @@ use piston::input::{RenderArgs};
 pub struct Ball {
     pub x: f64,
     pub y: f64,
+    pub velocityX: f64,
+    pub velocityY: f64,
 }
 
 impl Ball {

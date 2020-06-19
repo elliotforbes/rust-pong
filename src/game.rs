@@ -28,9 +28,23 @@ impl Game {
     pub fn update(&mut self, _args: &UpdateArgs) {
         println!("Updating Game");
         println!("Ball: {}:{}", self.ball.x, self.ball.y);
-        if (self.ball.x < 500.0 && self.ball.y < 700.0)  {
-            self.ball.x += 5.0;
-        } 
+        
+        self.ball.x += self.ball.velocityX;
+        self.ball.y += self.ball.velocityY;
+        
+        if self.ball.x <= 20.0 {
+            self.ball.velocityX = -self.ball.velocityX;
+        }
+        if self.ball.x >= 820.0 {
+            self.ball.velocityX = -self.ball.velocityX;
+        }
+
+        if self.ball.y >= 620.0 {
+            self.ball.velocityY = -self.ball.velocityY;
+        }
+        if self.ball.y <= 20.0 {
+            self.ball.velocityY = -self.ball.velocityY;
+        }
     }
 
     pub fn handle_collisions(self, x: f64, y: f64) {
